@@ -58,6 +58,18 @@ public class InventoryDAO {
      * @return -.
      */
     public long addInventory(@NonNull final Inventory inventory) {
+
+        ContentValues contentValues = getContentValuesFromInventory(inventory);
+        /**
+         * Return the result of the inster. -1 means there was an error.
+         */
+        return mInventoryDatabase.getWritableDatabase().insert(InventoryContract.InventoryEntry.TABLE_NAME,
+                null,
+                contentValues);
+
+    }
+
+    private ContentValues getContentValuesFromInventory(@NonNull final Inventory inventory) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(InventoryContract.InventoryEntry.COLUMN_NAME_NAME, inventory.getName());
         contentValues.put(InventoryContract.InventoryEntry.COLUMN_NAME_QUANTITY, inventory.getQuantity());
@@ -66,14 +78,7 @@ public class InventoryDAO {
         contentValues.put(InventoryContract.InventoryEntry.COLUMN_NAME_SUPPLIER, inventory.getSupplier());
         contentValues.put(InventoryContract.InventoryEntry.COLUMN_NAME_EMAIL, inventory.getEmail());
         contentValues.put(InventoryContract.InventoryEntry.COLUMN_NAME_IMAGE, inventory.getImage());
-
-        /**
-         * Return the result of the inster. -1 means there was an error.
-         */
-        return mInventoryDatabase.getWritableDatabase().insert(InventoryContract.InventoryEntry.TABLE_NAME,
-                null,
-                contentValues);
-
+        return contentValues;
     }
 
     /**
@@ -163,5 +168,64 @@ public class InventoryDAO {
         }
 
         return inventories;
+    }
+
+    /**
+     * UPDATE the existing inventory.
+     * @param inventory -.
+     * @return updated count.
+     */
+    public int updateInventory(@NonNull final Inventory inventory) {
+        int result = 0;
+
+        /**
+         * Using id as the selection clause. So no point if it is null.
+         */
+        if (null != inventory.get_id()) {
+
+            ContentValues contentValues = getContentValuesFromInventory(inventory);
+            contentValues.remove(InventoryContract.InventoryEntry._ID);
+
+
+            result = mInventoryDatabase.getWritableDatabase().update(
+                    InventoryContract.InventoryEntry.TABLE_NAME,
+                    contentValues,
+                    InventoryContract.InventoryEntry._ID + "=?",
+                    new String[]{inventory.get_id().toString()}
+            );
+        }
+
+        return result;
+
+    }
+
+    /**
+     * DELETE inventroy.
+     * @param inventory -.
+     * @return deleted inventory count.
+     */
+    public int deleteInventory(@NonNull final Inventory inventory) {
+        int result = 0;
+        if (null != inventory.get_id()) {
+            result = mInventoryDatabase.getWritableDatabase().delete(
+                    InventoryContract.InventoryEntry.TABLE_NAME,
+                    InventoryContract.InventoryEntry._ID + "=?",
+                    new String[]{inventory.get_id().toString()}
+            );
+        }
+
+        return result;
+    }
+
+    /**
+     * Deletes all the inventory from the database.
+     * @return deleted inventory count.
+     */
+    public int deleteAllInventories() {
+        return mInventoryDatabase.getWritableDatabase().delete(
+                InventoryContract.InventoryEntry.TABLE_NAME,
+                "1",
+                null
+        );
     }
 }

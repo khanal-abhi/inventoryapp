@@ -38,7 +38,7 @@ public final class InventoryContract {
      */
     public static final String SQL_CREATE_TABLE =
             "CREATE TABLE " + InventoryEntry.TABLE_NAME + " (" +
-                    InventoryEntry._ID + " INTEGER PRIMARY KEY," +
+                    InventoryEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                     InventoryEntry.COLUMN_NAME_NAME + " TEXT," +
                     InventoryEntry.COLUMN_NAME_PRICE + " INTEGER," +
                     InventoryEntry.COLUMN_NAME_CURRENCY + " TEXT," +
