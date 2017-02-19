@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Inventory App</string>
+    
+    <string translatable="true"
+        name="placeholder_message">Please add some new inventory using the add button -></string>
 </resources>

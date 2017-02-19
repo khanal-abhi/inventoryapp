@@ -8,4 +8,23 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- App Fab Style -->
+    <style name="ABFab">
+        <item name="android:layout_width">@dimen/fab_size</item>
+        <item name="android:layout_height">@dimen/fab_size</item>
+    </style>
+
+    <!-- Placeholder Text-->
+    <style name="ABPlaceholderText">
+        <item name="android:layout_marginEnd">@dimen/fab_size</item>
+        <item name="android:layout_marginRight">@dimen/fab_size</item>
+        <item name="android:textSize">@dimen/placeholder_text_size</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:gravity">end</item>
+        <item name="android:textAlignment">textEnd</item>
+        <item name="android:layout_alignParentBottom">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
 </resources>
