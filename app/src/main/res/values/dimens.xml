@@ -5,4 +5,7 @@
     <dimen name="fab_size">60dp</dimen>
     <dimen name="placeholder_padding">20dp</dimen>
     <dimen name="placeholder_text_size">16sp</dimen>
+    <dimen name="row_margin">4dp</dimen>
+    <dimen name="row_elevation">16dp</dimen>
+    <dimen name="row_text_size">14sp</dimen>
 </resources>

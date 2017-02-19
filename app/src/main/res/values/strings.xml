@@ -2,5 +2,9 @@
     <string name="app_name">Inventory App</string>
     
     <string translatable="true"
-        name="placeholder_message">Please add some new inventory using the add button -></string>
+        name="placeholder_message">Please add some new inventory using the add button ></string>
+    <string translatable="true" name="label_sold">SOLD</string>
+    <string name="label_name">Item Name:</string>
+    <string name="label_quantity">Item Quantity:</string>
+    <string name="label_price">Item Price:</string>
 </resources>

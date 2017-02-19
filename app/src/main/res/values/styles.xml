@@ -27,4 +27,33 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <!-- Inventory list row -->
+    <style name="ABListRow">
+        <item name="android:layout_margin">@dimen/row_margin</item>
+        <item name="android:padding">@dimen/row_margin</item>
+        <item name="android:background">@color/colorWhite</item>
+        <item name="android:elevation">@dimen/row_elevation</item>
+    </style>
+
+    <!-- SOLD button -->
+    <style name="ABSoldButton">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/placeholder_text_size</item>
+    </style>
+
+    <!-- ROW Labels -->
+    <style name="ABRowLabel">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:layout_marginEnd">@dimen/row_margin</item>
+        <item name="android:layout_marginRight">@dimen/row_margin</item>
+    </style>
+
+    <!-- ROW Data -->
+    <style name="ABRowData">
+        <item name="android:textColor">@color/colorDarkestText</item>
+        <item name="android:layout_marginEnd">@dimen/row_margin</item>
+        <item name="android:layout_marginRight">@dimen/row_margin</item>
+    </style>
+
 </resources>
